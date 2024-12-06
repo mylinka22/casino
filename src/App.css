@@ -13,7 +13,11 @@ html, body {
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-image: url('/public/background.webp');
+}
+
+.logo img {
+  width: 100% !important;
 }
 
 .app {
@@ -46,23 +50,33 @@ body {
 }
 
 h2 {
-  color: #333;
+  color: #ffffff;
+}
+
+.tagRooms {
+  color: #ffffff;
+  text-align: start;
+  font-size: 22px;
 }
 
 .room-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
   padding: 10px;
   margin: 10px 0;
 }
 
-.room-logo {
-  border-radius: 50%;
+.room-card img {
+  height: 60px; /* Высота изображения */
+  width: 60px; /* Ширина изображения */
+  border: 3px solid white; /* Белая рамка с толщиной в 1px */
+  border-radius: 8px; /* Скругленные углы (опционально) */
+  object-fit: cover; /* Убедимся, что изображение заполняет рамку */
+  display: block; /* Убираем лишние пробелы под изображением */
+  background-color: #f0f0f0; /* Фон вокруг изображения, если оно отсутствует (опционально) */
 }
+
 
 .room-info {
   flex-grow: 1;
@@ -70,28 +84,28 @@ h2 {
   margin-left: 10px;
 }
 
-.room-name {
+.room-name, .room-money, .room-time{
   margin: 0;
   font-size: 18px;
-  color: #333;
+  color: #ffffff;
 }
 
-.room-players, .room-money, .room-time {
+.room-players {
   margin: 5px 0;
-  color: #666;
+  color: #b9aeae;
 }
 
 .create-room-button {
   position: fixed;
-  bottom: 20px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #0088cc;
+  background-color: #ff0000;
   color: white;
   border: none;
-  border-radius: 25px;
+  border-radius: 5px;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 22px;
   cursor: pointer;
 }
 

@@ -24,45 +24,45 @@ const App = () => {
         const exampleRooms = [
             {
                 id: 1,
-                name: 'Комната 1',
+                name: 'TON gladiators',
                 players: 10,
                 money: 500,
                 timeLeft: 120, // в секундах
-                logo: 'https://via.placeholder.com/50',
+                logo: '/l2.webp',
             },
             {
                 id: 2,
-                name: 'Комната 2',
+                name: 'Nice Candles',
                 players: 5,
                 money: 200,
                 timeLeft: 300,
-                logo: 'https://via.placeholder.com/50',
+                logo: '/l3.webp',
             },
         ];
         const exampleArchiveRooms = [
             {
                 id: 3,
-                name: 'Комната 3',
+                name: 'LohScore',
                 players: 7,
                 money: 400,
                 timeLeft: 0,
-                logo: 'https://via.placeholder.com/50',
+                logo: '/l1.webp',
             },
             {
                 id: 4,
-                name: 'Комната 4',
+                name: 'TON gladiators',
                 players: 7,
                 money: 500,
                 timeLeft: 0,
-                logo: 'https://via.placeholder.com/50',
+                logo: '/l2.webp',
             },
             {
                 id: 5,
-                name: 'Комната 5',
+                name: 'TON gladiators',
                 players: 7,
                 money: 600,
                 timeLeft: 0,
-                logo: 'https://via.placeholder.com/50',
+                logo: '/l1.webp',
             },
         ];
 
@@ -73,18 +73,18 @@ const App = () => {
     return (
         <div className="app">
             {/* Никнейм */}
-            <header className="header">
-                <h1>{user?.username || 'Гость'}</h1>
-            </header>
+            {/*<header className="header">*/}
+            {/*    <h1>{user?.username || 'Гость'}</h1>*/}
+            {/*</header>*/}
 
             {/* Логотип */}
             <div className="logo">
-                <img src="https://via.placeholder.com/100" alt="Logo" />
+                <img src="/logo.png" alt="Logo" />
             </div>
 
             {/* Список комнат */}
             <section className="rooms">
-                <h2>Топ комнаты</h2>
+                <p className="tagRooms">Топ комнаты</p>
                 {rooms.map((room) => (
                     <RoomCard key={room.id} room={room} />
                 ))}
@@ -92,7 +92,7 @@ const App = () => {
 
             {/* Архив */}
             <section className="archive">
-                <h2>Архив</h2>
+                <p className="tagRooms">Архив</p>
                 {archiveRooms.map((room) => (
                     <RoomCard key={room.id} room={room} />
                 ))}
@@ -101,7 +101,7 @@ const App = () => {
 
 
             {/* Кнопка создать комнату */}
-            <button className="create-room-button">Создать комнату</button>
+            <button className="create-room-button">+СОЗДАТЬ РУМ</button>
         </div>
     );
 };
@@ -114,6 +114,8 @@ const RoomCard = ({ room }) => {
             <div className="room-info">
                 <h3 className="room-name">{room.name}</h3>
                 <p className="room-players">Игроков: {room.players}</p>
+            </div>
+            <div>
                 <p className="room-money">Сумма: {room.money} ₽</p>
                 <p className="room-time">
                     Время: {room.timeLeft > 0 ? `${room.timeLeft} сек.` : 'Закрыто'}
