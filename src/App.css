@@ -1,10 +1,82 @@
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
 }
 
-body {
-  background: var(--tg-theme-bg-color);
-  color: var(--tg-theme-text-color);
+.app {
+  text-align: center;
+  padding: 20px;
+}
+
+.header {
+  background-color: #0088cc;
+  color: white;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  width: 100px;
+  margin: 10px 0;
+}
+
+.rooms, .archive {
+  margin: 20px 0;
+}
+
+h2 {
+  color: #333;
+}
+
+.room-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.room-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.room-info {
+  flex-grow: 1;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.room-name {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.room-players, .room-money, .room-time {
+  margin: 5px 0;
+  color: #666;
+}
+
+.create-room-button {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0088cc;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.create-room-button:hover {
+  background-color: #005f99;
 }
