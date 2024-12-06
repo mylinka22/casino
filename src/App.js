@@ -48,6 +48,22 @@ const App = () => {
                 timeLeft: 0,
                 logo: 'https://via.placeholder.com/50',
             },
+            {
+                id: 4,
+                name: 'Комната 4',
+                players: 7,
+                money: 500,
+                timeLeft: 0,
+                logo: 'https://via.placeholder.com/50',
+            },
+            {
+                id: 5,
+                name: 'Комната 5',
+                players: 7,
+                money: 600,
+                timeLeft: 0,
+                logo: 'https://via.placeholder.com/50',
+            },
         ];
 
         setRooms(exampleRooms);
@@ -58,7 +74,7 @@ const App = () => {
         <div className="app">
             {/* Никнейм */}
             <header className="header">
-                <h1>Добро пожаловать, {user?.username || 'Гость'}</h1>
+                <h1>{user?.username || 'Гость'}</h1>
             </header>
 
             {/* Логотип */}
@@ -81,6 +97,8 @@ const App = () => {
                     <RoomCard key={room.id} room={room} />
                 ))}
             </section>
+
+
 
             {/* Кнопка создать комнату */}
             <button className="create-room-button">Создать комнату</button>
