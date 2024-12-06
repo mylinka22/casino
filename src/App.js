@@ -13,14 +13,11 @@ const App = () => {
     const [archiveRooms, setArchiveRooms] = useState([]);
 
     useEffect(() => {
-        // Инициализация Telegram Web App SDK
         const tg = window.Telegram.WebApp;
         tg.ready();
 
-        // Устанавливаем данные пользователя
         setUser(tg.initDataUnsafe?.user || { username: 'Guest' });
 
-        // Пример данных
         const exampleRooms = [
             {
                 id: 1,
