@@ -64,6 +64,22 @@ const App = () => {
                 timeLeft: 0,
                 logo: '/l1.webp',
             },
+            {
+                id: 6,
+                name: 'Nice Candles',
+                players: 5,
+                money: 2000,
+                timeLeft: 0,
+                logo: '/l3.webp',
+            },
+            {
+                id: 7,
+                name: 'Nice Candles',
+                players: 5,
+                money: 1200,
+                timeLeft: 0,
+                logo: '/l3.webp',
+            },
         ];
 
         setRooms(exampleRooms);
