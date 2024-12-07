@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +9,6 @@
 html, body {
   width: 100%;
   height: 100%;
-  font-family: Arial, sans-serif;
 }
 
 body {
@@ -49,14 +50,16 @@ body {
   margin: 20px 0;
 }
 
-h2 {
-  color: #ffffff;
+.grayLabel {
+  color: #7e7878;
 }
 
 .tagRooms {
   color: #ffffff;
   text-align: start;
   font-size: 22px;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.8); /* Белая тень */
+  font-family: "Press Start 2P", system-ui;
 }
 
 .room-card {
@@ -68,8 +71,8 @@ h2 {
 }
 
 .room-card img {
-  height: 60px; /* Высота изображения */
-  width: 60px; /* Ширина изображения */
+  height: 70px; /* Высота изображения */
+  width: 70px; /* Ширина изображения */
   border: 3px solid white; /* Белая рамка с толщиной в 1px */
   border-radius: 8px; /* Скругленные углы (опционально) */
   object-fit: cover; /* Убедимся, что изображение заполняет рамку */
@@ -77,6 +80,20 @@ h2 {
   background-color: #f0f0f0; /* Фон вокруг изображения, если оно отсутствует (опционально) */
 }
 
+.room-info2 {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  text-align: left;
+}
+
+.room-info2 p {
+  margin-right: 5px;
+}
+
+.room-info2 p:first-child {
+  color: white;
+}
 
 .room-info {
   flex-grow: 1;
@@ -84,10 +101,19 @@ h2 {
   margin-left: 10px;
 }
 
-.room-name, .room-money, .room-time{
+.room-name{
   margin: 0;
   font-size: 18px;
   color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Белая тень */
+}
+
+.room-money, .room-time{
+  text-align: end;
+  margin: 0;
+  font-size: 18px;
+  color: #ffffff;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.8); /* Белая тень */
 }
 
 .room-players {
@@ -95,20 +121,30 @@ h2 {
   color: #b9aeae;
 }
 
-.create-room-button {
+.pushable {
   position: fixed;
   bottom: 40px;
   left: 50%;
-  transform: translateX(-50%);
-  background-color: #ff0000;
-  color: white;
+  transform: translate(-50%, -50%);
+  background: hsl(340deg 100% 32%);
+  border-radius: 12px;
   border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 22px;
   cursor: pointer;
+  outline-offset: 4px;
+}
+.front {
+  bottom: 40px;
+  left: 50%;
+  display: block;
+  padding: 12px 42px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  background: hsl(345deg 100% 47%);
+  color: white;
+  transform: translateY(-6px);
+  font-family: "Press Start 2P", system-ui;
 }
 
-.create-room-button:hover {
-  background-color: #005f99;
+.pushable:active .front {
+  transform: translateY(-2px);
 }
