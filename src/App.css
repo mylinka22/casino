@@ -58,7 +58,7 @@ body {
   color: #ffffff;
   text-align: start;
   font-size: 22px;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.8); /* Белая тень */
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
   font-family: "Press Start 2P", system-ui;
 }
 
@@ -71,13 +71,13 @@ body {
 }
 
 .room-card img {
-  height: 70px; /* Высота изображения */
-  width: 70px; /* Ширина изображения */
-  border: 3px solid white; /* Белая рамка с толщиной в 1px */
-  border-radius: 8px; /* Скругленные углы (опционально) */
-  object-fit: cover; /* Убедимся, что изображение заполняет рамку */
-  display: block; /* Убираем лишние пробелы под изображением */
-  background-color: #f0f0f0; /* Фон вокруг изображения, если оно отсутствует (опционально) */
+  height: 70px;
+  width: 70px;
+  border: 3px solid white;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  background-color: #f0f0f0;
 }
 
 .room-info2 {
@@ -105,7 +105,7 @@ body {
   margin: 0;
   font-size: 18px;
   color: #ffffff;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Белая тень */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
 .room-money, .room-time{
@@ -113,7 +113,7 @@ body {
   margin: 0;
   font-size: 18px;
   color: #ffffff;
-  text-shadow: 0 0 25px rgba(255, 255, 255, 0.8); /* Белая тень */
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
 }
 
 .room-players {

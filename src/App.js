@@ -84,7 +84,6 @@ const App = () => {
         setArchiveRooms(exampleArchiveRooms);
     }, []);
 
-    // Функция для обновления времени для активных комнат каждую секунду
     useEffect(() => {
         const timer = setInterval(() => {
             setRooms((prevRooms) =>
@@ -94,11 +93,9 @@ const App = () => {
             );
         }, 1000);
 
-        // Очистка интервала при размонтировании компонента
         return () => clearInterval(timer);
     }, []);
 
-    // Функция для преобразования времени в формат "мм:сс"
     const formatTime = (seconds) => {
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
