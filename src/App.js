@@ -11,9 +11,9 @@ const App = () => {
     const [user, setUser] = useState(null);
     const [rooms, setRooms] = useState([]);
     const [archiveRooms, setArchiveRooms] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Telegram Web App SDK
         const tg = window.Telegram.WebApp;
         tg.ready();
 
@@ -82,6 +82,10 @@ const App = () => {
 
         setRooms(exampleRooms);
         setArchiveRooms(exampleArchiveRooms);
+
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000);
     }, []);
 
     useEffect(() => {
@@ -104,30 +108,35 @@ const App = () => {
 
     return (
         <div className="app">
-            <div className="logo">
-                <img src="/logo.png" alt="Logo" />
-            </div>
+            {loading ? (
+                <div className="loading-screen">
+                    <h2 className="loading">Loading...</h2>
+                </div>
+            ) : (
+                <>
+                    <div className="logo">
+                        <img src="/logo.png" alt="Logo" />
+                    </div>
 
-            <section className="rooms">
-                <p className="tagRooms">Топ комнаты</p>
-                {rooms.map((room) => (
-                    <RoomCard key={room.id} room={room} formatTime={formatTime} />
-                ))}
-            </section>
+                    <section className="rooms">
+                        <p className="tagRooms">Топ комнаты</p>
+                        {rooms.map((room) => (
+                            <RoomCard key={room.id} room={room} formatTime={formatTime} />
+                        ))}
+                    </section>
 
-            <section className="archive">
-                <p className="tagRooms">Архив</p>
-                {archiveRooms.map((room) => (
-                    <RoomCard key={room.id} room={room} formatTime={formatTime} />
-                ))}
-            </section>
+                    <section className="archive">
+                        <p className="tagRooms">Архив</p>
+                        {archiveRooms.map((room) => (
+                            <RoomCard key={room.id} room={room} formatTime={formatTime} />
+                        ))}
+                    </section>
 
-            <button className="pushable">
-              <span className="front">
-                +СОЗДАТЬ РУМ
-              </span>
-            </button>
-            {/*<button className="create-room-button">+СОЗДАТЬ РУМ</button>*/}
+                    <button className="pushable">
+                        <span className="front">+СОЗДАТЬ РУМ</span>
+                    </button>
+                </>
+            )}
         </div>
     );
 };
