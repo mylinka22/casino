@@ -1,0 +1,47 @@
+@keyframes gradientShift {
+    0% {
+        background: linear-gradient(90deg, #ffffff, #a2a2a2, #ffffff);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    20% {
+        background: linear-gradient(90deg, #a2a2a2, #ffffff, #a2a2a2);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    50% {
+        background: linear-gradient(90deg, #a2a2a2, #ffffff, #a2a2a2);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    100% {
+        background: linear-gradient(90deg, #ffffff, #a2a2a2, #ffffff);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+.loading {
+    font-size: 22px;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+    font-family: "Press Start 2P", system-ui;
+    animation: gradientShift 1s infinite;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
