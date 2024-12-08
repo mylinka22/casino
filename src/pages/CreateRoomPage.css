@@ -1,0 +1,68 @@
+.app {
+    color: white;
+}
+
+.title {
+    font-size: 42px;
+    color: yellow;
+    margin: 20px 0;
+    font-family: "Press Start 2P", system-ui;
+}
+
+.section {
+    margin: 20px 0;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+}
+
+.section p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #b9aeae;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.tokens button,
+.timeouts button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background: #444;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Press Start 2P", system-ui;
+}
+
+.tokens button.active,
+.timeouts button.active {
+    background: yellow;
+    color: black;
+    font-family: "Press Start 2P", system-ui;
+}
+
+input {
+    padding: 10px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-family: "Press Start 2P", system-ui;
+}
+
+.continue-button {
+    padding: 15px 30px;
+    border: none;
+    background: blue;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Press Start 2P", system-ui;
+}
+
+.continue-button:hover {
+    background: darkblue;
+}

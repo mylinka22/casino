@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useTelegram } from './hooks/useTelegram';
+import { Route, Routes, Link } from 'react-router-dom';
 import LoadingScreen from './components/LoadingScreen/LoadingScreen';
 import RoomList from './components/RoomList/RoomList';
 import CreateRoomButton from './components/CreateRoomButton/CreateRoomButton';
+import CreateRoomPage from './pages/CreateRoomPage';
 import './App.css';
 
 const App = () => {
@@ -57,22 +58,34 @@ const App = () => {
                 <LoadingScreen />
             ) : (
                 <>
-                    <div className="logo">
-                        <img src="/logo.png" alt="Logo" />
-                    </div>
-                    <RoomList
-                        title="Топ комнаты"
-                        rooms={rooms}
-                        formatTime={formatTime}
-                        onRoomClick={handleRoomClick}
-                    />
-                    <RoomList
-                        title="Архив"
-                        rooms={archiveRooms}
-                        formatTime={formatTime}
-                        onRoomClick={handleRoomClick}
-                    />
-                    <CreateRoomButton />
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <>
+                                    <div className="logo">
+                                        <img src="/logo.png" alt="Logo" />
+                                    </div>
+                                    <RoomList
+                                        title="Топ комнаты"
+                                        rooms={rooms}
+                                        formatTime={formatTime}
+                                        onRoomClick={handleRoomClick}
+                                    />
+                                    <RoomList
+                                        title="Архив"
+                                        rooms={archiveRooms}
+                                        formatTime={formatTime}
+                                        onRoomClick={handleRoomClick}
+                                    />
+                                    <Link to="/create-room">
+                                        <CreateRoomButton />
+                                    </Link>
+                                </>
+                            }
+                        />
+                        <Route path="/create-room" element={<CreateRoomPage />} />
+                    </Routes>
                 </>
             )}
         </div>
