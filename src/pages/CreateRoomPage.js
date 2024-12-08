@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './CreateRoomPage.css';
 
 const CreateRoomPage = () => {
@@ -6,6 +6,17 @@ const CreateRoomPage = () => {
     const [betTimeout, setBetTimeout] = useState(5);
     const [selectedToken, setSelectedToken] = useState("Notcoin");
 
+
+    useEffect(() => {
+        const tg = window.Telegram.WebApp;
+        tg.BackButton.show();
+        tg.BackButton.onClick(() => {
+            tg.close();
+        });
+        return () => {
+            tg.BackButton.hide();
+        };
+    }, []);
 
     return (
         <div className="app">
