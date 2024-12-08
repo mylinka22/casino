@@ -23,7 +23,10 @@ const CreateRoomPage = () => {
     return (
         <div className="app">
             <div className="game">
-                <div className="title">NEWROOM</div>
+                <div className="logo">
+                    <img src="/board.png" alt="Logo" />
+                    <div className="text-overlay text-overlay-create-room-page">NEWROOM</div>
+                </div>
 
                 <div className="section">
                     <h2>Select Token</h2>

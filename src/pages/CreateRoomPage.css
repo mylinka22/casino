@@ -9,6 +9,10 @@
     font-family: "Press Start 2P", system-ui;
 }
 
+.text-overlay-create-room-page {
+    font-size: 35px !important;
+}
+
 .section {
     margin: 20px 0;
 }
