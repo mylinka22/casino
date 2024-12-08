@@ -6,17 +6,16 @@ const CreateRoomPage = () => {
     const [betTimeout, setBetTimeout] = useState(5);
     const [selectedToken, setSelectedToken] = useState("Notcoin");
 
-
     useEffect(() => {
         const tg = window.Telegram.WebApp;
         tg.BackButton.show();
         tg.BackButton.onClick(() => {
-            tg.close();
+            navigate(-1);
         });
         return () => {
             tg.BackButton.hide();
         };
-    }, []);
+    }, [navigate]);
 
     return (
         <div className="app">
