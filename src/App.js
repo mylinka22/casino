@@ -64,7 +64,8 @@ const App = () => {
                             element={
                                 <>
                                     <div className="logo">
-                                        <img src="/logo.png" alt="Logo" />
+                                        <img src="/board.png" alt="Logo" />
+                                        <div className="text-overlay">CASINO</div>
                                     </div>
                                     <RoomList
                                         title="Топ комнаты"
