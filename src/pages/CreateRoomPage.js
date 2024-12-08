@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import './CreateRoomPage.css';
 
 const CreateRoomPage = () => {
     const [betAmount, setBetAmount] = useState(1000);
     const [betTimeout, setBetTimeout] = useState(5);
     const [selectedToken, setSelectedToken] = useState("Notcoin");
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const tg = window.Telegram.WebApp;
