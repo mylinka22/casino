@@ -9,16 +9,31 @@
     font-family: "Press Start 2P", system-ui;
 }
 
+.logo img {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.logo {
+    position: relative;
+    display: inline-block;
+}
+
 .text-overlay-create-room-page {
     font-size: 35px !important;
 }
 
 .section {
-    margin: 20px 0;
+    margin: 40px 0;
 }
 
 .section h2 {
     margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 22px;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+    font-family: "Press Start 2P", system-ui;
+
 }
 
 .section p {
@@ -50,23 +65,12 @@
 input {
     padding: 10px;
     width: 100px;
-    border: none;
-    border-radius: 5px;
     text-align: center;
     font-family: "Press Start 2P", system-ui;
-}
-
-.continue-button {
-    padding: 15px 30px;
-    border: none;
-    background: blue;
-    color: white;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: "Press Start 2P", system-ui;
-}
-
-.continue-button:hover {
-    background: darkblue;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    margin-top: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
