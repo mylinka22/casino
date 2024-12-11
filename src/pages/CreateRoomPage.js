@@ -11,6 +11,24 @@ const CreateRoomPage = () => {
 
     useEffect(() => {
         const tg = window.Telegram.WebApp;
+        tg.ready();
+    }, []);
+
+    const handleConnectWallet = () => {
+        const tg = window.Telegram.WebApp;
+        if (tg.readyToPay) {
+            tg.showPopup({
+                title: "Connect Wallet",
+                description: "You need to connect your TON wallet to proceed.",
+            });
+            tg.readyToPay = true;
+        } else {
+            alert("TON Wallet is not available in this environment.");
+        }
+    };
+
+    useEffect(() => {
+        const tg = window.Telegram.WebApp;
         tg.BackButton.show();
         tg.BackButton.onClick(() => {
             navigate(-1);
@@ -82,9 +100,10 @@ const CreateRoomPage = () => {
                 </div>
             </div>
 
-            <button className="pushable">
-                <span className="front">CONTINUE</span>
+            <button onClick={handleConnectWallet} className="connect-wallet-button">
+                Connect Wallet
             </button>
+
         </div>
     );
 };
