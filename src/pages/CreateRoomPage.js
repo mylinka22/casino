@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CreateRoomPage.css';
 
@@ -9,12 +9,29 @@ const CreateRoomPage = () => {
 
     const navigate = useNavigate();
 
+    // Функция для подключения TON Wallet
     const handleConnectWallet = () => {
         const tg = window.Telegram.WebApp;
 
         if (tg.readyToPay) {
-            alert("Connecting to TON Wallet...");
-            // Здесь вы можете продолжить работу с TON Wallet
+            // Открываем инвойс для взаимодействия с TON Wallet
+            tg.openInvoice({
+                payload: `bet-${Date.now()}`, // Уникальный payload (например, время)
+                currency: "TON", // Валюта
+                prices: [
+                    { label: "Bet Amount", amount: betAmount * 1e9 } // Сумма в nanoTON
+                ]
+            })
+                .then((result) => {
+                    if (result.status === "ok") {
+                        alert("Wallet connected successfully!");
+                    } else {
+                        alert("Connection failed: " + result.error);
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error connecting wallet:", error);
+                });
         } else {
             alert("TON Wallet is not available in this environment. Please open this app in the Telegram mobile app.");
         }
@@ -22,10 +39,14 @@ const CreateRoomPage = () => {
 
     useEffect(() => {
         const tg = window.Telegram.WebApp;
+
+        // Показываем кнопку "Назад" Telegram WebApp
         tg.BackButton.show();
         tg.BackButton.onClick(() => {
             navigate(-1);
         });
+
+        // Скрываем кнопку "Назад" при размонтировании компонента
         return () => {
             tg.BackButton.hide();
         };
@@ -42,7 +63,7 @@ const CreateRoomPage = () => {
                 <h2>Select Token</h2>
                 <p>
                     To add a token, your wallet must have enough to make at least one
-                    move
+                    move.
                 </p>
                 <div className="tokens">
                     <button
@@ -65,7 +86,7 @@ const CreateRoomPage = () => {
                 <input
                     type="number"
                     value={betAmount}
-                    onChange={(e) => setBetAmount(e.target.value)}
+                    onChange={(e) => setBetAmount(Number(e.target.value))}
                 />
             </div>
 
@@ -93,10 +114,9 @@ const CreateRoomPage = () => {
                 </div>
             </div>
 
-            <button onClick={handleConnectWallet}>
+            <button onClick={handleConnectWallet} className="connect-wallet-button">
                 Connect TON Wallet
             </button>
-
         </div>
     );
 };
