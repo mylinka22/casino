@@ -9,39 +9,14 @@ const CreateRoomPage = () => {
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const tg = window.Telegram.WebApp;
-        tg.ready();
-    }, []);
-
     const handleConnectWallet = () => {
         const tg = window.Telegram.WebApp;
 
         if (tg.readyToPay) {
-            const user = tg.initDataUnsafe.user;
-
-            const payload = JSON.stringify({
-                user_id: user.id,
-                username: user.username || "unknown",
-                first_name: user.first_name,
-                last_name: user.last_name || "",
-            });
-
-            tg.openInvoice({
-                payload,
-                currency: "TON",
-                prices: [{ label: "Bet Payment", amount: betAmount * 1000000000 }],
-            }).then((response) => {
-                if (response.status === "ok") {
-                    alert("Wallet connected!");
-                } else {
-                    console.error("Wallet connection failed:", response.error);
-                }
-            }).catch((error) => {
-                console.error("Error while connecting wallet:", error);
-            });
+            alert("Connecting to TON Wallet...");
+            // Здесь вы можете продолжить работу с TON Wallet
         } else {
-            alert("TON Wallet is not available in this environment. Please use the mobile Telegram app.");
+            alert("TON Wallet is not available in this environment. Please open this app in the Telegram mobile app.");
         }
     };
 
@@ -118,8 +93,8 @@ const CreateRoomPage = () => {
                 </div>
             </div>
 
-            <button onClick={handleConnectWallet} className="connect-wallet-button">
-                Connect Wallet
+            <button onClick={handleConnectWallet}>
+                Connect TON Wallet
             </button>
 
         </div>
