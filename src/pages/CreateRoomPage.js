@@ -16,14 +16,32 @@ const CreateRoomPage = () => {
 
     const handleConnectWallet = () => {
         const tg = window.Telegram.WebApp;
+
         if (tg.readyToPay) {
-            tg.showPopup({
-                title: "Connect Wallet",
-                description: "You need to connect your TON wallet to proceed.",
+            const user = tg.initDataUnsafe.user;
+
+            const payload = JSON.stringify({
+                user_id: user.id,
+                username: user.username || "unknown",
+                first_name: user.first_name,
+                last_name: user.last_name || "",
             });
-            tg.readyToPay = true;
+
+            tg.openInvoice({
+                payload,
+                currency: "TON",
+                prices: [{ label: "Bet Payment", amount: betAmount * 1000000000 }],
+            }).then((response) => {
+                if (response.status === "ok") {
+                    alert("Wallet connected!");
+                } else {
+                    console.error("Wallet connection failed:", response.error);
+                }
+            }).catch((error) => {
+                console.error("Error while connecting wallet:", error);
+            });
         } else {
-            alert("TON Wallet is not available in this environment.");
+            alert("TON Wallet is not available in this environment. Please use the mobile Telegram app.");
         }
     };
 
